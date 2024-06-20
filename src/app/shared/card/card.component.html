@@ -1,1 +1,142 @@
-<p>card works!</p>
+<div class="animate__animated animate__lightSpeedInRight animate__slow">
+  <div class="flex flex-wrap">
+    @for (superhero of superheroes().data; track superhero.id) {
+      <div class="w-full sm:w-1/2 md:w-1/4 p-6">
+        <article
+          matRipple
+          class="bg-white overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105 cursor-pointer rounded-b-xl"
+          [routerLink]="['/superhero', superhero.id]"
+        >
+          <div class="flex justify-center">
+            <img
+              [src]="superhero.images.lg"
+              alt="{{ superhero.name }} Image"
+              class="w-full h-64 object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="p-4">
+            <h2
+              class="text-2xl font-bold text-center flex justify-center items-center overflow-hidden"
+            >
+              <span class="truncate flex-grow">{{
+                superhero.name | titlecase
+              }}</span>
+            </h2>
+
+            <div class="mb-4">
+              <div class="flex items-center mb-1">
+                <mat-icon>group</mat-icon>
+                <span class="font-semibold me-2">Race:</span>
+                <span class="truncate">{{
+                  superhero.appearance.race || "Unknown"
+                }}</span>
+              </div>
+
+              <div class="flex items-center mb-1">
+                <mat-icon>height</mat-icon>
+                <span class="font-semibold me-2">Height:</span>
+                {{
+                  superhero.appearance.height[1] !== "0 cm"
+                    ? superhero.appearance.height[1]
+                    : "Unknown"
+                }}
+              </div>
+
+              <div class="flex items-center">
+                <mat-icon>monitor_weight</mat-icon>
+                <span class="font-semibold me-2">Weight:</span>
+                {{
+                  superhero.appearance.weight[1] !== "0 kg"
+                    ? superhero.appearance.weight[1]
+                    : "Unknown"
+                }}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <mat-icon class="text-base">psychology</mat-icon>
+                <span class="font-medium text-sm truncate flex-grow"
+                  >Intelligence</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full"
+                  [style.width]="superhero.powerstats.intelligence + '%'"
+                ></div>
+              </div>
+
+              <div class="flex items-center">
+                <mat-icon class="text-base">security</mat-icon>
+                <span class="font-medium text-sm truncate flex-grow"
+                  >Durability</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full"
+                  [style.width]="superhero.powerstats.durability + '%'"
+                ></div>
+              </div>
+
+              <div class="flex items-center">
+                <mat-icon class="text-base">fitness_center</mat-icon>
+                <span class="font-medium text-sm truncate flex-grow"
+                  >Strength</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full"
+                  [style.width]="superhero.powerstats.strength + '%'"
+                ></div>
+              </div>
+
+              <div class="flex items-center">
+                <mat-icon class="text-base">bolt</mat-icon>
+                <span class="font-medium text-sm truncate flex-grow"
+                  >Power</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full"
+                  [style.width]="superhero.powerstats.power + '%'"
+                ></div>
+              </div>
+
+              <div class="flex items-center">
+                <mat-icon class="text-base">forward</mat-icon>
+                <span class="font-medium text-sm truncate flex-grow"
+                  >Speed</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full"
+                  [style.width]="superhero.powerstats.speed + '%'"
+                ></div>
+              </div>
+
+              <div class="flex items-center">
+                <mat-icon class="text-base">sports_martial_arts</mat-icon>
+                <span class="font-medium text-sm truncate flex-grow"
+                  >Combat</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-blue-500 h-2 rounded-full"
+                  [style.width]="superhero.powerstats.combat + '%'"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    }
+  </div>
+</div>
