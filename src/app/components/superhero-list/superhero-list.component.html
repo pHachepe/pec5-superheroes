@@ -1,21 +1,21 @@
 <div class="flex justify-end space-x-2 px-6">
   <button
     mat-mini-fab
-    (click)="view.set(this.viewEnum.Card)"
-    [color]="view() === this.viewEnum.Card ? 'primary' : ''"
+    (click)="setView(viewEnum.Card)"
+    [color]="view() === viewEnum.Card ? 'primary' : ''"
   >
     <mat-icon>view_module</mat-icon>
   </button>
   <button
     mat-mini-fab
-    (click)="view.set(this.viewEnum.Grid)"
-    [color]="view() === this.viewEnum.Grid ? 'primary' : ''"
+    (click)="setView(viewEnum.Grid)"
+    [color]="view() === viewEnum.Grid ? 'primary' : ''"
   >
     <mat-icon>view_list</mat-icon>
   </button>
 </div>
 
-@if (view() === this.viewEnum.Card) {
+@if (view() === viewEnum.Card) {
   @defer {
     <app-card [superheroes]="superheroes()"></app-card>
   }
