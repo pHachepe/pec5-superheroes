@@ -1,1 +1,129 @@
-<p>grid works!</p>
+<div class="animate__animated animate__lightSpeedInRight animate__slow p-4">
+  <div class="overflow-auto rounded-lg shadow-lg">
+    <table mat-table [dataSource]="superheroes().data">
+      <ng-container matColumnDef="id">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          mat-sort-header
+          class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
+        >
+          ID
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let superhero"
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+        >
+          {{ superhero.id }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
+        >
+          Name
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let superhero"
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+        >
+          {{ superhero.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
+        >
+          Image
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let superhero"
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+        >
+          <img
+            [src]="superhero.images.lg"
+            alt="{{ superhero.name }}"
+            class="w-16 h-16 object-cover rounded-full"
+            loading="lazy"
+          />
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="race">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
+        >
+          Race
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let superhero"
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+        >
+          {{ superhero.appearance.race || "Unknown" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="height">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
+        >
+          Height
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let superhero"
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+        >
+          {{
+            superhero.appearance.height[1] !== "0 cm"
+              ? superhero.appearance.height[1]
+              : "Unknown"
+          }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="weight">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center"
+        >
+          Weight
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let superhero"
+          class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center"
+        >
+          {{
+            superhero.appearance.weight[1] !== "0 kg"
+              ? superhero.appearance.weight[1]
+              : "Unknown"
+          }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [routerLink]="['/superhero', row.id]"
+        class="cursor-pointer hover:bg-violet-100 transition duration-300 ease-in-out"
+      ></tr>
+    </table>
+  </div>
+</div>
