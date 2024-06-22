@@ -10,12 +10,12 @@
             alt="{{ superhero().name }} Image"
             class="w-48 h-48 object-cover rounded-full shadow-lg my-4"
           />
-          <button mat-flat-button color="accent" (click)="toggleDetails()">
+          <button mat-flat-button color="accent" (click)="toggleDetails()" aria-label="Toggle Details">
             {{ showDetails() ? "Hide" : "Show" }} All Details
           </button>
         </div>
         <div class="flex-1 flex justify-end">
-          <button mat-fab extended (click)="goBack()" color="primary">
+          <button mat-fab extended (click)="goBack()" color="primary" aria-label="Go Back">
             <mat-icon>arrow_back</mat-icon>
             Back
           </button>
