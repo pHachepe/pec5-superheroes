@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1719088762512,
+  "timestamp": 1719088841221,
   "index": "/pec5-superheroes/index.html",
   "assetGroups": [
     {
@@ -21,7 +21,7 @@
         "/pec5-superheroes/chunk-ZUNN2YFO.js",
         "/pec5-superheroes/favicon.ico",
         "/pec5-superheroes/index.html",
-        "/pec5-superheroes/main-EYTC37CX.js",
+        "/pec5-superheroes/main-K5JY6EMJ.js",
         "/pec5-superheroes/manifest.webmanifest",
         "/pec5-superheroes/polyfills-6EAL64PA.js",
         "/pec5-superheroes/styles-YPM6UZS2.css"
@@ -87,8 +87,8 @@
     "/pec5-superheroes/chunk-ZBHCZD35.js": "975677db0752448e69dac05067edceb899d46d6f",
     "/pec5-superheroes/chunk-ZUNN2YFO.js": "85788b63577e7726b1b6b316eac9c57e2a3659cb",
     "/pec5-superheroes/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "/pec5-superheroes/index.html": "31b864533f1a3f9d39a78c062c2153eed6abc557",
-    "/pec5-superheroes/main-EYTC37CX.js": "6ba1db3cef2de84bf2dcf4a20e161351c38c78cf",
+    "/pec5-superheroes/index.html": "6f9a13add89b9812bc32cba20c3e97037631252f",
+    "/pec5-superheroes/main-K5JY6EMJ.js": "6fc03a8fe35b2de3689352b71969ff5ce50c7675",
     "/pec5-superheroes/manifest.webmanifest": "a1cea87c49fd19db0e90d7dd5f42aa0e9fe5adcf",
     "/pec5-superheroes/polyfills-6EAL64PA.js": "d874147a12a6570d9b44e99935e9de8b7f3cabbc",
     "/pec5-superheroes/styles-YPM6UZS2.css": "5ea55a3896c278cc402c412acdc8f439a76491e5"
