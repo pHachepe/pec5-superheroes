@@ -1,116 +1,119 @@
-<div class="p-4">
-  <div class="flex justify-between mb-4">
-    <div class="flex-1"></div>
-    <div class="flex-1 flex flex-col items-center">
-      <span class="text-3xl font-bold">{{ superhero()?.name }}</span>
-      <img
-        [src]="superhero()?.images?.lg"
-        alt="{{ superhero()?.name }} Image"
-        class="w-48 h-48 object-cover rounded-full shadow-lg my-4"
-        loading="lazy"
-      />
-      <button mat-flat-button color="accent" (click)="toggleDetails()">
-        {{ showDetails() ? "Hide" : "Show" }} All Details
-      </button>
+@if (superhero().id) {
+  @defer {
+    <div class="p-4">
+      <div class="flex justify-between mb-4">
+        <div class="flex-1"></div>
+        <div class="flex-1 flex flex-col items-center">
+          <span class="text-3xl font-bold">{{ superhero().name }}</span>
+          <img
+            [src]="superhero().images.lg"
+            alt="{{ superhero().name }} Image"
+            class="w-48 h-48 object-cover rounded-full shadow-lg my-4"
+          />
+          <button mat-flat-button color="accent" (click)="toggleDetails()">
+            {{ showDetails() ? "Hide" : "Show" }} All Details
+          </button>
+        </div>
+        <div class="flex-1 flex justify-end">
+          <button mat-fab extended (click)="goBack()" color="primary">
+            <mat-icon>arrow_back</mat-icon>
+            Back
+          </button>
+        </div>
+      </div>
+
+      <div class="w-full">
+        @if (showDetails()) {
+          @defer {
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Biography </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="p-4">
+                  <p>
+                    <strong>Full Name:</strong>
+                    {{ superhero().biography?.fullName }}
+                  </p>
+                  <p>
+                    <strong>Alter Egos:</strong>
+                    {{ superhero().biography?.alterEgos }}
+                  </p>
+                  <p>
+                    <strong>Aliases:</strong>
+                    {{ superhero().biography?.aliases!.join(", ") }}
+                  </p>
+                  <p>
+                    <strong>Place of Birth:</strong>
+                    {{ superhero().biography?.placeOfBirth }}
+                  </p>
+                  <p>
+                    <strong>First Appearance:</strong>
+                    {{ superhero().biography?.firstAppearance }}
+                  </p>
+                  <p>
+                    <strong>Publisher:</strong>
+                    {{ superhero().biography?.publisher }}
+                  </p>
+                  <p>
+                    <strong>Alignment:</strong>
+                    {{ superhero().biography?.alignment }}
+                  </p>
+                </div>
+              </mat-expansion-panel>
+
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Appearance </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="p-4">
+                  <p>
+                    <strong>Race:</strong>
+                    {{ superhero().appearance.race || "Unknown" }}
+                  </p>
+                  <p>
+                    <strong>Height:</strong>
+                    {{ superhero().appearance!.height[1] }}
+                  </p>
+                  <p>
+                    <strong>Weight:</strong>
+                    {{ superhero().appearance!.weight[1] }}
+                  </p>
+                </div>
+              </mat-expansion-panel>
+
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title> Power Stats </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="p-4">
+                  <p>
+                    <strong>Intelligence:</strong>
+                    {{ superhero().powerstats.intelligence }}
+                  </p>
+                  <p>
+                    <strong>Strength:</strong>
+                    {{ superhero().powerstats.strength }}
+                  </p>
+                  <p>
+                    <strong>Speed:</strong> {{ superhero().powerstats.speed }}
+                  </p>
+                  <p>
+                    <strong>Durability:</strong>
+                    {{ superhero().powerstats.durability }}
+                  </p>
+                  <p>
+                    <strong>Power:</strong> {{ superhero().powerstats.power }}
+                  </p>
+                  <p>
+                    <strong>Combat:</strong> {{ superhero().powerstats.combat }}
+                  </p>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          }
+        }
+      </div>
     </div>
-    <div class="flex-1 flex justify-end">
-      <button mat-fab extended (click)="goBack()" color="primary">
-        <mat-icon>arrow_back</mat-icon>
-        Back
-      </button>
-    </div>
-  </div>
-
-  <div class="w-full">
-    @if (showDetails()) {
-      @defer {
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title> Biography </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="p-4">
-              <p>
-                <strong>Full Name:</strong>
-                {{ superhero()?.biography?.fullName }}
-              </p>
-              <p>
-                <strong>Alter Egos:</strong>
-                {{ superhero()?.biography?.alterEgos }}
-              </p>
-              <p>
-                <strong>Aliases:</strong>
-                {{ superhero()?.biography?.aliases!.join(", ") }}
-              </p>
-              <p>
-                <strong>Place of Birth:</strong>
-                {{ superhero()?.biography?.placeOfBirth }}
-              </p>
-              <p>
-                <strong>First Appearance:</strong>
-                {{ superhero()?.biography?.firstAppearance }}
-              </p>
-              <p>
-                <strong>Publisher:</strong>
-                {{ superhero()?.biography?.publisher }}
-              </p>
-              <p>
-                <strong>Alignment:</strong>
-                {{ superhero()?.biography?.alignment }}
-              </p>
-            </div>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title> Appearance </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="p-4">
-              <p>
-                <strong>Race:</strong>
-                {{ superhero()?.appearance?.race || "Unknown" }}
-              </p>
-              <p>
-                <strong>Height:</strong>
-                {{ (superhero()?.appearance)!.height[1] }}
-              </p>
-              <p>
-                <strong>Weight:</strong>
-                {{ (superhero()?.appearance)!.weight[1] }}
-              </p>
-            </div>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title> Power Stats </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="p-4">
-              <p>
-                <strong>Intelligence:</strong>
-                {{ superhero()?.powerstats?.intelligence }}
-              </p>
-              <p>
-                <strong>Strength:</strong>
-                {{ superhero()?.powerstats?.strength }}
-              </p>
-              <p>
-                <strong>Speed:</strong> {{ superhero()?.powerstats?.speed }}
-              </p>
-              <p>
-                <strong>Durability:</strong>
-                {{ superhero()?.powerstats?.durability }}
-              </p>
-              <p>
-                <strong>Power:</strong> {{ superhero()?.powerstats?.power }}
-              </p>
-              <p>
-                <strong>Combat:</strong> {{ superhero()?.powerstats?.combat }}
-              </p>
-            </div>
-          </mat-expansion-panel>
-        </mat-accordion>
-      }
-    }
-  </div>
-</div>
+  }
+}

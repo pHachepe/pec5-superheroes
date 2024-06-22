@@ -121,7 +121,7 @@
       <tr
         mat-row
         *matRowDef="let row; columns: displayedColumns"
-        [routerLink]="['/superhero', row.id]"
+        (click)="navigateToDetail(row)"
         class="cursor-pointer hover:bg-violet-100 transition duration-300 ease-in-out"
       ></tr>
     </table>
